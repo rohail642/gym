@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Oswald', sans-serif;
+}
+
+/* home-gym starts */
+.hero10{
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.container10{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #000000;
+}
+
+.hero-content10{
+    flex:1;
+    margin-left: 100px;
+    width:600px;
+    animation: fadeInUp 2s ease;
+    margin-bottom: 10px;
+
+}
+.hero-content10 h2{
+    font-size: 80px;
+    color: white;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.hero-content10 p{
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    color: #666;
+}
+
+
+.hero-image10{
+    flex:1;
+    border-radius: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 10%;
+    animation: fadeInRight 2s ease
+}
+
+
+
+@media screen and (max-width: 768px){
+    .heading h1{
+        font-size: 45px;
+        margin-top: 30px;
+    }
+    .hero10{
+        margin:0px;
+    }
+    .container10{
+        width: 100%;
+        flex-direction: column;
+        margin: 0px;
+        padding: 0px 40px;
+    }
+    .hero-content10{
+        width: 100%;
+        margin: 35px 0px;
+    }
+    .hero-content10 h2{
+        font-size: 45px;
+        margin-left: -20px;
+    }
+    .hero-content10 p{
+        font-size: 15px;
+        margin-right: 60px;
+        margin-bottom: 20px;
+        margin-left: -20px;
+
+    }
+    .hero-content10 button{
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+    .hero-image10{
+        border-radius: 15px;
+        margin-top: -100px;
+        margin-bottom: -40px;
+    }
+    .hero-image10 img{
+        width: 100%;
+        height: 100%;
+        margin-left: -65px;
+        animation: fadeInRight 2s ease
+    }
+}
+
+@keyframes fadeInUp{
+    0%{
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+}
+@keyframes fadeInRight{
+    0%{
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+}
+@keyframes fadeInDown{
+    0%{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+}
+
+/* home-gym end */

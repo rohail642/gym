@@ -4,12 +4,24 @@ from django.contrib.auth.hashers import make_password
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import GymUser  # Import your model
+from .models import Message
 from django.contrib import messages
 
 # Create your views here.
 
 def home(request):
     return render(request, "home.html")
+
+
+def privacy(request):
+    return render(request, 'privacy.html')
+
+
+def terms(request):
+    return render(request, 'terms.html')
+
+def refund(request):
+    return render(request, 'refund.html')
 
 
 def login_view(request):
@@ -30,7 +42,7 @@ def signup(request):
         email = request.POST.get("email")
         password = make_password(request.POST.get("password"))
         plan = request.POST.get("plan")
-        
+
          # Check if the email is already registered
         if GymUser.objects.filter(email=email).exists():
             return render(request, "register.html", {"error": "Email is already registered."})
@@ -75,3 +87,18 @@ def payment_callback(request):
         else:
             return HttpResponse("Payment failed. Please try again.")
     return HttpResponse("Invalid request.")
+
+def contact(request):
+    if request.method == "POST":
+        full_name = request.POST.get('full_name')
+        email = request.POST.get('email')
+        message_text = request.POST.get('message')
+
+        # Save the message to the database
+        Message.objects.create(full_name=full_name, email=email, message=message_text)
+
+        # Display a success message
+        messages.success(request, "Your message has been sent successfully!")
+        return redirect('contact')
+
+    return render(request, 'home.html')  # Use your actual template path
